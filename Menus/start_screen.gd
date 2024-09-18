@@ -1,4 +1,5 @@
 class_name StartScreen extends Control
+@onready var start = $VBoxContainer/HBoxContainer/GridContainer/Start
 
 const template_version: String = "0.1"
 
@@ -7,6 +8,7 @@ const template_version: String = "0.1"
 @onready var version_num: Label = %VersionNum
 func _ready() -> void:
 	version_num.text = "v%s" % template_version
+	start.grab_focus()
 
 func _on_start_button_up() -> void:
 	SceneManager.swap_scenes(SceneRegistry.levels["game_start"],get_tree().root,self,"wipe_to_right")	
